@@ -7,5 +7,6 @@ postgres_password=password
 postgres_host=127.0.0.1
 postgres_port=5432
 postgres_dbname=dbname
+path_to_store_backup=/home
 
-docker run -it postgres:$postgres_version pg_dump --dbname=postgresql://$postgres_username:$postgres_password@$postgres_host:$postgres_port/$postgres_dbname | gzip > /home/$(postgres_dbname)_$(date +%Y-%m-%d).psql.gz
+docker run -it postgres:$postgres_version pg_dump --dbname=postgresql://$postgres_username:$postgres_password@$postgres_host:$postgres_port/$postgres_dbname | gzip > /$path_to_store_backup/$postgres_dbname_$(date +%Y-%m-%d).psql.gz
